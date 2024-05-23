@@ -1,3 +1,7 @@
+#Importa Biblioteca
+
+import os
+
 #Recebe o nome e idade do usuário
 
 nome = input('Informe seu nome: ')
@@ -7,40 +11,52 @@ idade = str (input('Informe a sua idade: ')).replace(',','.')
 
 idade = float(idade)
 
-#Exibe a lista de filmes e suas salas
+#Limpa Console
 
-print('LISTA DE FILMES\n')
-print('Sala 1 - A volta dos que não foram')
-print('Sala 2 - A Roda Quadrada')
-print('Sala 3 - Poeira em Alto Mar')
-print('Sala 4 - As Tranças do Rei Careca')
-print('Sala 5 - A Vingança do Peixe Frito')
+os.system('cls')
 
-#Recebe a sala escolhida
+#Inicia o loop
 
 while True:
+
+    #Exibe a lista de filmes e suas salas
+
+    print('LISTA DE FILMES\n')
+    print('Sala 1 - A volta dos que não foram')
+    print('Sala 2 - A Roda Quadrada')
+    print('Sala 3 - Poeira em Alto Mar')
+    print('Sala 4 - As Tranças do Rei Careca')
+    print('Sala 5 - A Vingança do Peixe Frito')
+
+    #Recebe a sala escolhida
 
     sala = int(input('Informe a sala desejada: '))
 
     #Classificação dos filmes
 
-
     match sala:
-        case 1:
-            if idade <12:
-                print(f'{nome}, o filme escolhido está liberado - Classificação Livre.')
+        case '1':
+            idade_minima = 16
+            break
         case 2:
-            if idade >=12:
-                print(f'{nome}, o filme escolhido está liberado - Classificação 12 anos.')
+            idade_minima = 16
+            break
         case 3:
-            if idade >=14:
-                print(f'{nome}, o filme escolhido está liberado - Classificação 14 anos.')
+            idade_minima = 16
+            break
         case 4:
-            if idade >=16:
-                print(f'{nome}, o filme escolhido está liberado - Classificação 16 anos.')
+            idade_minima = 16
+            break
         case 5:
-            if idade >=18:
-                print(f'{nome}, o filme escolhido está liberado - Classificação 18 anos.')
+            idade_minima = 16
+            break
         case _:
-            print('Filme escolhido não é permitido para esta idade')
-            
+            print('Sala inexistente.')
+            continue
+
+    if idade >= idade_minima:
+        print(f'Ingresso liberado para {nome}. Bom filme!')
+        break
+    else:
+        print(f'Ingresso não permitido para {nome}')
+        continue
